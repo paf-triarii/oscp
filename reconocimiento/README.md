@@ -24,4 +24,7 @@ Los siguientes comandos pueden ser empleados para realizar un reconocimiento de 
 
 ### WEB
 
-6) 
+6) Dirbuster                           --> __HTTP__ `dirb /usr/share/dirb/wordlist/big.txt http://$TARGET` 
+                                       --> __HTTPS__ `dirb /usr/share/dirb/wordlist/big.txt https://$TARGET` 
+                                       
+                                        
