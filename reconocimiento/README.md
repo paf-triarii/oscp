@@ -1,7 +1,4 @@
-#OSCP reconocimiento
+# OSCP reconocimiento
 
-En esta sección se incluyen:
+## Comandos de reconocimiento
 
-1) Comandos de reconocimiento
-
-2) Utilidades de reconocimiento
