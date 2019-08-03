@@ -4,7 +4,7 @@ En esta sección se incluyen distintos comandos preparados para funcionar de for
 
 ## Comandos de reconocimiento
 
-Los siguientes comandos pueden ser empleados para realizar un reconocimiento de servicios: (Hacer export TARGET=IP_objetivo)
+Los siguientes comandos pueden ser empleados para realizar un reconocimiento de servicios: (Hacer `export TARGET=IP_objetivo`)
   
 ### NMAP
 
@@ -26,5 +26,7 @@ Los siguientes comandos pueden ser empleados para realizar un reconocimiento de 
 
 6) Dirbuster                           --> __HTTP__ `dirb /usr/share/dirb/wordlist/big.txt http://$TARGET`        
  __HTTPS__ `dirb /usr/share/dirb/wordlist/big.txt https://$TARGET` 
+ 
+ 7) Nikto                              --> `nikto -h http://$TARGET`
                                        
                                         
