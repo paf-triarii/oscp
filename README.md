@@ -11,4 +11,4 @@ Este repositorio incluye distintas utilidades de cara a la preparación y obtenc
 --> Escalada de privilegios:
 
 
---> Referencias: 
+--> Referencias: https://github.com/pedroarias1015/oscp/blob/master/Referencias.md
