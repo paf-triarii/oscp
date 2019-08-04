@@ -6,11 +6,14 @@ Para utilizarlo adecuadamente se debe exportar la ruta raiz del repositorio al c
 
 ## Reconocimiento
 
+https://github.com/pedroarias1015/oscp/tree/master/reconocimiento
 
 ## Explotacion
 
+https://github.com/pedroarias1015/oscp/tree/master/explotacion
 
 ##  Escalada de privilegios
 
+https://github.com/pedroarias1015/oscp/tree/master/reconocimiento
 
 ## Referencias
