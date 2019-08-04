@@ -21,12 +21,14 @@
 7) Listar los procesos corriendo como root, permisos y NFS exports --> `echo 'services running as root'; ps aux | grep root;  echo 'permissions'; ps aux | awk '{print $11}'|xargs -r ls -la 2>/dev/null |awk '!x[$0]++'; echo 'nfs info'; ls -la /etc/exports 2>/dev/null; cat /etc/exports 2>/dev/null`
 
 8) Listar directorios con permisos de lectura, escritura y ejecución --> 
+<pre>
 W   `find / -writable -type d 2>/dev/null`
 W   `find / -perm -222 -type d 2>/dev/null`
 W   `find / -perm -o w -type d 2>/dev/null`     # world-writeable folders
 X   `find / -perm -o x -type d 2>/dev/null`     # world-executable folders
 W+X `find / \( -perm -o w -perm -o x \) -type d 2>/dev/null`  
 R `find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print`
+</pre>
 
 
 9) Encontrar binarios interesantes             -->  `find / -name wget; find / -name nc*; find / -name netcat*; find / -name tftp*; find / -name ftp`
