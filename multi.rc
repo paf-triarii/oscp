@@ -1,0 +1,6 @@
+use exploit/multi/handler
+set PAYLOAD
+set LHOST
+set LPORT
+set ExitOnSession false
+exploit
