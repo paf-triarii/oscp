@@ -16,4 +16,10 @@ Los siguientes comandos pueden ser empleados para realizar un reconocimiento de 
 
 [WEB]
 
-6) 
+6) Listado de directorios existentes   -->  dirb http://$TARGET:<PORT> <wordlists.txt> -o dirb.txt
+
+7) Escaner de la web                   --> nikto -h http://$TARGET:<PORT> -o nikto.txt
+  
+8) DAV                                 --> cadaver htp://$TARGET:<PORT>  
+  
+9) Escáner para WordPress              --> wpscan --url http://$TARGET:<PORT>
