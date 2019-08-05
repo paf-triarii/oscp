@@ -58,4 +58,12 @@ https://github.com/pedroarias1015/oscp/tree/master/BoF
 
 18) __LD AUDIT SUID ping__ https://www.exploit-db.com/exploits/18105 
 
-19)
+19) __Windows privilege escalation II__ https://guif.re/windowseop
+
+20) __Windows post explotación__ https://github.com/emilyanncr/Windows-Post-Exploitation
+
+21) __Elevación de privilegios en Linux__ https://guif.re/linuxeop
+
+22) __Elevación de privilegios Linux II__ https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/
+
+23) __Escapar de consola restringida__ https://www.cnblogs.com/xiaoxiaoleo/p/8450379.html
