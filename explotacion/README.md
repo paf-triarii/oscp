@@ -114,10 +114,10 @@ Content-Type: text\/html\r\n\r\n" . $global_page;
 
 ## Utilidades
 
-8) User-agent falso --> `Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)`
+8) __User-agent falso__ --> `Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)`
 
 9) __Cewl__ construir diccionario --> `cewl http://IP/DIR>>cewl`
 
-
+10) __nc64.exe en bin__ https://github.com/pedroarias1015/oscp/blob/master/explotacion/bin/nc64.exe
 
 

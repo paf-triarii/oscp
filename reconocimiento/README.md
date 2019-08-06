@@ -27,7 +27,7 @@ Los siguientes comandos pueden ser empleados para realizar un reconocimiento de 
 6) Dirbuster                           --> __HTTP__ `dirb  http://$TARGET /usr/share/dirb/wordlists/big.txt`        
  __HTTPS__ `dirb  http://$TARGET /usr/share/dirb/wordlists/big.txt` 
  
- 7) Nikto                              --> `nikto -h http://$TARGET`
+7) Nikto                               --> `nikto -h http://$TARGET`
                                        
 8) DAV                                 --> cadaver htp://$TARGET:<PORT>  
   
