@@ -29,7 +29,7 @@ Los siguientes comandos pueden ser empleados para realizar un reconocimiento de 
  
 7) Nikto                               --> `nikto -h http://$TARGET`
                                        
-8) DAV                                 --> cadaver htp://$TARGET:<PORT>  
+8) DAV                                 --> `cadaver http://$TARGET:<PORT>`  
   
-9) Escáner para WordPress              --> wpscan --url http://$TARGET:<PORT>
+9) Escáner para WordPress              --> `wpscan --url http://$TARGET:<PORT>`
                                         
