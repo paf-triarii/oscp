@@ -24,9 +24,12 @@ Los siguientes comandos pueden ser empleados para realizar un reconocimiento de 
 
 ### WEB
 
-6) Dirbuster                           --> __HTTP__ `dirb  http://$TARGET /usr/share/dirb/wordlist/big.txt`        
- __HTTPS__ `dirb  http://$TARGET /usr/share/dirb/wordlist/big.txt` 
+6) Dirbuster                           --> __HTTP__ `dirb  http://$TARGET /usr/share/dirb/wordlists/big.txt`        
+ __HTTPS__ `dirb  http://$TARGET /usr/share/dirb/wordlists/big.txt` 
  
- 7) Nikto                              --> `nikto -h http://$TARGET`
+7) Nikto                               --> `nikto -h http://$TARGET`
                                        
+8) DAV                                 --> `cadaver http://$TARGET:<PORT>`  
+  
+9) Escáner para WordPress              --> `wpscan --url http://$TARGET:<PORT>`
                                         
