@@ -1,3 +1,6 @@
+Linux: https://github.com/pedroarias1015/oscp/blob/master/escalacion/README.md#elevacion-de-privilegios-linux
+Windows: https://github.com/pedroarias1015/oscp/blob/master/escalacion/README.md#elevacion-de-privilegios-windows
+
 # Elevacion de privilegios LINUX
 
 ## Spawing shell
