@@ -51,7 +51,7 @@ Permisos de R    -->  find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -p
 
 16) Añadir al usuario www-data a sudoers sin password --> `echo 'chmod 777 /etc/sudoers && echo "www-data ALL=NOPASSWD:ALL" >> /etc/sudoers && chmod 440 /etc/sudoers' > /tmp/update`
 
-17) Compartir carpeta RDP --> `rdesktop -u <USUARIO> -p <CONTRASEÑA> <IP> -g $(xrandr -q | awk '/ connected / {print $4;exit}' | awk -F "x" '{print int($1/1.05)"x"int($2/1.1)}')`
+17) Compartir carpeta RDP --> `rdesktop -u <USUARIO> -p <CONTRASEÑA> <IP> -r disk:remote_folder=<LOCAL_PATH> -g $(xrandr -q | awk '/ connected / {print $4;exit}' | awk -F "x" '{print int($1/1.05)"x"int($2/1.1)}')`
 
 
 ## Compilacion
