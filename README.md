@@ -38,6 +38,10 @@ https://github.com/pedroarias1015/oscp/tree/master/BoF
 
 6) __Claves SSH predecibles__ https://github.com/g0tmi1k/debian-ssh
 
+7) __Eternalblue repository__ https://github.com/worawit/MS17-010.git 
+
+8) __SAMBA 3.0.24__  https://github.com/MarkBuffalo/exploits/blob/master/Samba/CVE-2010-0926.c
+
 ### Elevacion de privilegios
 
 10) __Exploits para Windows precompilados__ https://github.com/abatchy17/WindowsExploits
@@ -67,3 +71,8 @@ https://github.com/pedroarias1015/oscp/tree/master/BoF
 22) __Elevación de privilegios Linux II__ https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/
 
 23) __Escapar de consola restringida__ https://www.cnblogs.com/xiaoxiaoleo/p/8450379.html
+
+
+## De interes
+
+24) __Muhammd__ https://github.com/Muhammd/Awesome-Hacking#awesome-ctf

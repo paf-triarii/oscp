@@ -112,7 +112,11 @@ Content-Type: text\/html\r\n\r\n" . $global_page;
 }
 </pre>
 
+## Utilidades
 
+8) User-agent falso --> `Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)`
+
+9) __Cewl__ construir diccionario --> `cewl http://IP/DIR>>cewl`
 
 
 
