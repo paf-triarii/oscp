@@ -14,7 +14,7 @@ https://github.com/pedroarias1015/oscp/tree/master/explotacion
 
 ##  Escalada de privilegios
 
-https://github.com/pedroarias1015/oscp/tree/master/reconocimiento
+https://github.com/pedroarias1015/oscp/tree/master/escalacion
 
 ## Buffer OverFlow
 
